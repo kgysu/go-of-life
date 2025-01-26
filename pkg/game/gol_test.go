@@ -23,9 +23,65 @@ func TestPlayOneRound_Rules(t *testing.T) {
 	got := PlayRound(input)
 
 	if !reflect.DeepEqual(want, got) {
+		t.Errorf("PlayOneRound failed, \nwant=%v, \n got=%v", want, got)
+	}
+}
+
+func TestPlayOneRound_Rule1(t *testing.T) {
+	input := [][]int{
+		{0, 0, 0},
+		{0, 1, 0},
+		{0, 0, 0},
+	}
+	want := [][]int{
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+	}
+	got := PlayRound(input)
+
+	if !reflect.DeepEqual(want, got) {
 		t.Errorf("PlayOneRound failed, want=%v, got=%v", want, got)
 	}
 }
+
+func TestPlayOneRound_Rule1_1(t *testing.T) {
+	input := [][]int{
+		{0, 0, 0},
+		{0, 1, 1},
+		{0, 0, 0},
+	}
+	want := [][]int{
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+	}
+	got := PlayRound(input)
+
+	if !reflect.DeepEqual(want, got) {
+		t.Errorf("PlayOneRound failed, want=%v, got=%v", want, got)
+	}
+}
+
+
+func TestPlayOneRound_Rule1_2(t *testing.T) {
+	input := [][]int{
+		{0, 0, 0},
+		{1, 1, 1},
+		{0, 0, 0},
+	}
+	want := [][]int{
+		{0, 1, 0},
+		{0, 1, 0},
+		{0, 1, 0},
+	}
+	got := PlayRound(input)
+
+	if !reflect.DeepEqual(want, got) {
+		t.Errorf("PlayOneRound failed, want=%v, got=%v", want, got)
+	}
+}
+
 
 func TestGetNeighborCount_0(t *testing.T) {
 	state := [][]int{

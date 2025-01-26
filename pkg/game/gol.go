@@ -12,7 +12,7 @@ var dir = [][]int{
 	{1, 1},
 }
 
-func getNeighborCount(state [][]int, x, y int) int {
+func getNeighborCount(state [][]int, y, x int) int {
 	count := 0
 	for _, d := range dir {
 		row := y + d[0]
@@ -42,11 +42,11 @@ func PlayRound(state [][]int) [][]int {
 		for x := range rows {
 			out[y][x] = state[y][x]
 
-			count := getNeighborCount(state, x, y)
+			count := getNeighborCount(state, y, x)
 			if count < 2 {
 				out[y][x] = 0
 			}
-			if count > 4 {
+			if count > 3 {
 				out[y][x] = 0
 			}
 			if count == 3 {
